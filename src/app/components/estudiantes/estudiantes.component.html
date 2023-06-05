@@ -1,0 +1,61 @@
+<div class="container mt-5">
+    <div class="row">
+
+
+        <div class="input-group">
+            
+                <input type="text" [(ngModel)]="nombre" class="form-control form-control-lg"
+                    placeholder="Ingrese su nombre">
+            
+            
+                <input type="text" [(ngModel)]="apellido" class="form-control form-control-lg"
+                    placeholder="Ingrese su apellido">
+
+
+                <input type="text" [(ngModel)]="nacionalidad" class="form-control form-control-lg"
+                    placeholder="Ingrese su nacionalidad">
+            
+            <button class="btn btn-primary" (click)="agregarEstudiante()">Agregar</button>
+        </div>
+
+
+        <div class="col-lg-6 offset-lg-3 mt-3">
+            <div *ngIf="listEstudiante.length===0" class="card p-2">
+                <h6>No hay Estudiantes registrados</h6>
+            </div> <br>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">NOMBRE</th>
+                      <th scope="col">APELLIDO</th>
+                      <th scope="col">NACIONALIDAD</th>
+                      <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody > 
+                    <tr *ngFor="let estudiante of listEstudiante let i=index">
+                        <th>
+                            <span class="cursor" (click)="actualizarEstudiante(estudiante, i)">
+                                <i id="icono_check" [class.text-success]="estudiante.estado"
+                                [ngClass]="estudiante.estado ? 'bi bi-check-circle-fill' : 'bi bi-circle' "></i>
+                            </span>
+                        </th>
+                        <th>{{estudiante.nombre}}</th>
+                        <th>{{estudiante.apellido}}</th>
+                        <th>{{estudiante.nacionalidad}}</th>
+                        <th>
+                            <span class="cursor" (click)="eliminarEstudiante(i)">
+                                <i class="bi bi-x-circle icono_eliminar"></i>
+                            </span>
+                        </th>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>

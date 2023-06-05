@@ -1,0 +1,21 @@
+input{
+    text-align: center;
+    height:fit-content;
+}
+
+.form-control-lg{
+    font-size: x-large;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.icono_eliminar{
+    font-size: 25px;
+    color: red;
+}
+
+#icono_check{
+    font-size: 25px;
+}
